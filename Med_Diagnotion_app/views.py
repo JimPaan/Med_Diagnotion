@@ -30,6 +30,4 @@ def login_view(request):
             messages.error(request, 'Invalid username or password. Please try again.')
             return redirect('login')
 
-
-
     return render(request, 'login.html')
