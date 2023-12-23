@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'signup.css' %}">
+    <title>Create Account</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Let's Make it Happen Together!</h1>
+        {% if messages %}
+             <ul class="messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="firstname" placeholder="First Name" required>
+            <input type="text" name="lastname" placeholder="Last Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="gender" placeholder="Gender" required>
+            <input type="password" name="password" placeholder="Create Password" required>
+            <input type="password" name="confirmpassword" placeholder="Confirm Password" required>
+            <button type="submit">Create An Account</button>
+        </form>
+        <p>Already have an account? <a href="{% url 'login' %}">Sign in here!</a></p>
+    </div>
+</body>
+</html>
