@@ -79,175 +79,211 @@
         </header>
         <!-- end header section -->
 
-        <form method="post" action="{% url 'diagnose' %}">
-            {% csrf_token %}
-            <h5>Symptom 1:</h5>
-            <label class="custom-select" for="styledSelect1"><select id="styledSelect1" name="option1">
-                <option value="">
-                Select an option
-                </option>
-                <option value="1">
-                cough
-                </option>
-                <option value="2">
-                phlegm
-                </option>
-                <option value="3">
-                weight_loss
-                </option>
-                <option value="4">
-                unsteadiness
-                </option>
-                <option value="4">
-                red_spots_over_body
-                </option>
-                <option value="4">
-                patches_in_throat
-                </option>
-                <option value="4">
-                lethargy
-                </option>
-                <option value="4">
-                burning_micturition
-                </option>
-                <option value="4">
-                runny_nose
-                </option>
-            </select></label>
-            <h5>Symptom 2:</h5>
-            <label class="custom-select" for="styledSelect1"><select id="styledSelect2" name="option2">
-                <option value="">
-                Select an option
-                </option>
-                <option value="1">
-                cough
-                </option>
-                <option value="2">
-                phlegm
-                </option>
-                <option value="3">
-                weight_loss
-                </option>
-                <option value="4">
-                unsteadiness
-                </option>
-                <option value="4">
-                red_spots_over_body
-                </option>
-                <option value="4">
-                patches_in_throat
-                </option>
-                <option value="4">
-                lethargy
-                </option>
-                <option value="4">
-                burning_micturition
-                </option>
-                <option value="4">
-                runny_nose
-                </option>
-            </select></label>
-            <h5>Symptom 3:</h5>
-            <label class="custom-select" for="styledSelect1"><select id="styledSelect3" name="option3">
-                <option value="">
-                Select an option
-                </option>
-                <option value="1">
-                cough
-                </option>
-                <option value="2">
-                phlegm
-                </option>
-                <option value="3">
-                weight_loss
-                </option>
-                <option value="4">
-                unsteadiness
-                </option>
-                <option value="4">
-                red_spots_over_body
-                </option>
-                <option value="4">
-                patches_in_throat
-                </option>
-                <option value="4">
-                lethargy
-                </option>
-                <option value="4">
-                burning_micturition
-                </option>
-                <option value="4">
-                runny_nose
-                </option>
-            </select></label>
-            <h5>Symptom 4:</h5>
-            <label class="custom-select" for="styledSelect1"><select id="styledSelect4" name="option4">
-                <option value="">
-                Select an option
-                </option>
-                <option value="1">
-                cough
-                </option>
-                <option value="2">
-                phlegm
-                </option>
-                <option value="3">
-                weight_loss
-                </option>
-                <option value="4">
-                unsteadiness
-                </option>
-                <option value="4">
-                red_spots_over_body
-                </option>
-                <option value="4">
-                patches_in_throat
-                </option>
-                <option value="4">
-                lethargy
-                </option>
-                <option value="4">
-                burning_micturition
-                </option>
-                <option value="4">
-                runny_nose
-                </option>
-            </select></label>
-            <h5>Symptom 5:</h5>
-            <label class="custom-select" for="styledSelect1"><select id="styledSelect5" name="option5">
-                <option value="">
-                Select an option
-                </option>
-                <option value="1">
-                cough
-                </option>
-                <option value="2">
-                phlegm
-                </option>
-                <option value="3">
-                weight_loss
-                </option>
-                <option value="4">
-                unsteadiness
-                </option>
-                <option value="4">
-                red_spots_over_body
-                </option>
-                <option value="4">
-                patches_in_throat
-                </option>
-                <option value="4">
-                lethargy
-                </option>
-                <option value="4">
-                burning_micturition
-                </option>
-                <option value="4">
-                runny_nose
-                </option>
-            </select></label>
-            <button type="submit">Diagnose</button>
-        </form>
+        <section class="symptom_section layout_padding">
+            <form method="post" action="{% url 'diagnose' %}">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="column">
+                        <h5>Symptom 1:</h5>
+                    </div>
+                    <div class="column">
+                        <label class="custom-select" for="styledSelect1"><select id="styledSelect1" name="option1">
+                            <option value="">
+                            Select an option
+                            </option>
+                            <option value="1">
+                            cough
+                            </option>
+                            <option value="2">
+                            phlegm
+                            </option>
+                            <option value="3">
+                            weight_loss
+                            </option>
+                            <option value="4">
+                            unsteadiness
+                            </option>
+                            <option value="4">
+                            red_spots_over_body
+                            </option>
+                            <option value="4">
+                            patches_in_throat
+                            </option>
+                            <option value="4">
+                            lethargy
+                            </option>
+                            <option value="4">
+                            burning_micturition
+                            </option>
+                            <option value="4">
+                            runny_nose
+                            </option>
+                        </select></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <h5>Symptom 2:</h5>
+                    </div>
+                    <div class="column">
+                        <label class="custom-select" for="styledSelect1"><select id="styledSelect2" name="option2">
+                            <option value="">
+                            Select an option
+                            </option>
+                            <option value="1">
+                            cough
+                            </option>
+                            <option value="2">
+                            phlegm
+                            </option>
+                            <option value="3">
+                            weight_loss
+                            </option>
+                            <option value="4">
+                            unsteadiness
+                            </option>
+                            <option value="4">
+                            red_spots_over_body
+                            </option>
+                            <option value="4">
+                            patches_in_throat
+                            </option>
+                            <option value="4">
+                            lethargy
+                            </option>
+                            <option value="4">
+                            burning_micturition
+                            </option>
+                            <option value="4">
+                            runny_nose
+                            </option>
+                        </select></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <h5>Symptom 3:</h5>
+                    </div>
+                    <div class="column">
+                        <label class="custom-select" for="styledSelect1"><select id="styledSelect3" name="option3">
+                            <option value="">
+                            Select an option
+                            </option>
+                            <option value="1">
+                            cough
+                            </option>
+                            <option value="2">
+                            phlegm
+                            </option>
+                            <option value="3">
+                            weight_loss
+                            </option>
+                            <option value="4">
+                            unsteadiness
+                            </option>
+                            <option value="4">
+                            red_spots_over_body
+                            </option>
+                            <option value="4">
+                            patches_in_throat
+                            </option>
+                            <option value="4">
+                            lethargy
+                            </option>
+                            <option value="4">
+                            burning_micturition
+                            </option>
+                            <option value="4">
+                            runny_nose
+                            </option>
+                        </select></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <h5>Symptom 4:</h5>
+                    </div>
+                    <div class="column">
+                        <label class="custom-select" for="styledSelect1"><select id="styledSelect4" name="option4">
+                            <option value="">
+                            Select an option
+                            </option>
+                            <option value="1">
+                            cough
+                            </option>
+                            <option value="2">
+                            phlegm
+                            </option>
+                            <option value="3">
+                            weight_loss
+                            </option>
+                            <option value="4">
+                            unsteadiness
+                            </option>
+                            <option value="4">
+                            red_spots_over_body
+                            </option>
+                            <option value="4">
+                            patches_in_throat
+                            </option>
+                            <option value="4">
+                            lethargy
+                            </option>
+                            <option value="4">
+                            burning_micturition
+                            </option>
+                            <option value="4">
+                            runny_nose
+                            </option>
+                        </select></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <h5>Symptom 5:</h5>
+                    </div>
+                    <div class="column">
+                        <label class="custom-select" for="styledSelect1"><select id="styledSelect5" name="option5">
+                            <option value="">
+                            Select an option
+                            </option>
+                            <option value="1">
+                            cough
+                            </option>
+                            <option value="2">
+                            phlegm
+                            </option>
+                            <option value="3">
+                            weight_loss
+                            </option>
+                            <option value="4">
+                            unsteadiness
+                            </option>
+                            <option value="4">
+                            red_spots_over_body
+                            </option>
+                            <option value="4">
+                            patches_in_throat
+                            </option>
+                            <option value="4">
+                            lethargy
+                            </option>
+                            <option value="4">
+                            burning_micturition
+                            </option>
+                            <option value="4">
+                            runny_nose
+                            </option>
+                        </select></label>
+                    </div>
+                </div>
+                <p>
+
+
+                </p>
+                <button type="submit">Diagnose</button>
+            </form>
+        </section>
     </div>
     <div>
         {% if predicted_disease %}
