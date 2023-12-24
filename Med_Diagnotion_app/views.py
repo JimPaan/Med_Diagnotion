@@ -80,6 +80,8 @@ def dashboard_view(request):
 @login_required
 def diagnose_machine_view(request):
     predicted_disease = None  # Initialize predicted_disease
+    first_name = request.user.first_name
+    last_name = request.user.last_name
 
     if request.method == 'POST':
         # Retrieve symptoms from the POST request
@@ -97,6 +99,7 @@ def diagnose_machine_view(request):
 
         data = {
             'predicted_disease': predicted_disease,
+            'name': first_name + ' ' + last_name,
         }
         return render(request, 'diagnose.html', data)
 
@@ -105,5 +108,6 @@ def diagnose_machine_view(request):
 
     data = {
         'predicted_disease': predicted_disease,
+        'name': first_name + ' ' + last_name,
     }
     return render(request, 'diagnose.html', data)
