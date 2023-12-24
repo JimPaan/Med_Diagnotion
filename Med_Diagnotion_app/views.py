@@ -94,5 +94,4 @@ def diagnose_machine_view(request):
         }
         return render(request, 'diagnose.html', data)
 
-    # If it's not a POST request, render the initial form
     return render(request, 'diagnose.html')
