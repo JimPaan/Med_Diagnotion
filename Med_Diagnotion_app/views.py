@@ -79,7 +79,10 @@ def dashboard_view(request):
 
 @login_required
 def diagnose_machine_view(request):
+    predicted_disease = None  # Initialize predicted_disease
+
     if request.method == 'POST':
+        # Retrieve symptoms from the POST request
         symptom_1 = request.POST.get('symptom_1', '')
         symptom_2 = request.POST.get('symptom_2', '')
         symptom_3 = request.POST.get('symptom_3', '')
@@ -89,9 +92,19 @@ def diagnose_machine_view(request):
         # Perform your diagnosis using these symptoms
         predicted_disease = user_symptoms_utils(symptom_1, symptom_2, symptom_3, symptom_4, symptom_5)
 
+        # Store predicted_disease in session
+        request.session['predicted_disease'] = predicted_disease
+
         data = {
             'predicted_disease': predicted_disease,
         }
         return render(request, 'diagnose.html', data)
 
-    return render(request, 'diagnose.html')
+    # If it's not a POST request, check if predicted_disease is stored in session
+    if 'predicted_disease' in request.session:
+        predicted_disease = request.session['predicted_disease']
+
+    data = {
+        'predicted_disease': predicted_disease,
+    }
+    return render(request, 'diagnose.html', data)
