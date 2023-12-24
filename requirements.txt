@@ -1,0 +1,7 @@
+django
+keras
+scipy
+scikit-learn
+tensorflow
+requests
+pandas
