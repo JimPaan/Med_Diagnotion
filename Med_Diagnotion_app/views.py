@@ -100,7 +100,6 @@ def diagnose_machine_view(request):
         }
         return render(request, 'diagnose.html', data)
 
-    # If it's not a POST request, check if predicted_disease is stored in session
     if 'predicted_disease' in request.session:
         predicted_disease = request.session['predicted_disease']
 
