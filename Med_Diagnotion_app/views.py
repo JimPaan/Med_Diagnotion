@@ -79,7 +79,6 @@ def dashboard_view(request):
 
 @login_required
 def diagnose_machine_view(request):
-    predicted_disease = None
     if request.method == 'POST':
         symptom_1 = request.POST.get('symptom_1', '')
         symptom_2 = request.POST.get('symptom_2', '')
@@ -97,5 +96,3 @@ def diagnose_machine_view(request):
 
     # If it's not a POST request, render the initial form
     return render(request, 'diagnose.html')
-
-
