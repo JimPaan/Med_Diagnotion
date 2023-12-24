@@ -1,7 +1,10 @@
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.utils import timezone
+
+from utils.ANN import user_symptoms_utils
 from .models import CustomUser
 
 # Create your views here.
@@ -27,7 +30,7 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
-            return redirect('index')
+            return redirect('dashboard')
         else:
             messages.error(request, 'Invalid username or password. Please try again.')
             return redirect('login')
@@ -43,8 +46,6 @@ def signup_view(request):
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirmpassword')
         gender = request.POST.get('gender')
-
-        print(email, first_name, last_name, password, confirm_password, gender)
 
         # Check if passwords match
         if password != confirm_password:
@@ -66,5 +67,29 @@ def signup_view(request):
     return render(request, 'signup.html')
 
 
+@login_required
 def dashboard_view(request):
-    return render(request, 'dashboard.html')
+    first_name = request.user.first_name
+    last_name = request.user.last_name
+    data = {
+        'name': first_name + ' ' + last_name,
+    }
+    return render(request, 'dashboard.html', data)
+
+
+@login_required
+def diagnose_machine_view(request):
+
+    # User's symptoms
+    symptom_1 = 'headache'
+    symptom_2 = 'dizziness'
+    symptom_3 = 'dark_urine'
+    symptom_4 = 'chest_pain'
+    symptom_5 = ''
+
+    predicted_disease = user_symptoms_utils(symptom_1, symptom_2, symptom_3, symptom_4, symptom_5)
+    data = {
+        'predicted_disease': predicted_disease,
+    }
+    return render(request, 'diagnose.html', data)
+
