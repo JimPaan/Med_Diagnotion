@@ -146,8 +146,8 @@ def logout_view(request):
 
 @login_required
 def history_view(request):
-    # Filter Diagnosis objects for the current logged-in user
     user_history = Diagnosis.objects.filter(user=request.user)
+
     data = {
         'user_history': user_history,
     }
