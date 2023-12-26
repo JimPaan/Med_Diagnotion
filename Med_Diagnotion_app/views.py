@@ -131,7 +131,7 @@ def edit_profile(request):
         form = ProfileEditForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            return redirect('profile')  # Replace 'success_page' with your URL name
+            return redirect('profile')
     else:
         form = ProfileEditForm(instance=request.user)
 
@@ -148,7 +148,6 @@ def logout_view(request):
 def history_view(request):
     # Filter Diagnosis objects for the current logged-in user
     user_history = Diagnosis.objects.filter(user=request.user)
-
     data = {
         'user_history': user_history,
     }
