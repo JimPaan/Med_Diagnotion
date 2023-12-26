@@ -1,11 +1,12 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.utils import timezone
 
 from utils.ANN import user_symptoms_utils
-from .models import CustomUser
+from .models import CustomUser, Diagnosis
+from .forms import ProfileEditForm
 
 # Create your views here.
 
@@ -79,17 +80,15 @@ def dashboard_view(request):
 
 @login_required
 def diagnose_machine_view(request):
-    predicted_disease = None  # Initialize predicted_disease
-    first_name = request.user.first_name
-    last_name = request.user.last_name
+    predicted_disease = None
 
     if request.method == 'POST':
         # Retrieve symptoms from the POST request
-        symptom_1 = request.POST.get('symptom_1', '')
-        symptom_2 = request.POST.get('symptom_2', '')
-        symptom_3 = request.POST.get('symptom_3', '')
-        symptom_4 = request.POST.get('symptom_4', '')
-        symptom_5 = request.POST.get('symptom_5', '')
+        symptom_1 = request.POST.get('option1')
+        symptom_2 = request.POST.get('option2')
+        symptom_3 = request.POST.get('option3')
+        symptom_4 = request.POST.get('option4')
+        symptom_5 = request.POST.get('option5')
 
         # Perform your diagnosis using these symptoms
         predicted_disease = user_symptoms_utils(symptom_1, symptom_2, symptom_3, symptom_4, symptom_5)
@@ -97,9 +96,18 @@ def diagnose_machine_view(request):
         # Store predicted_disease in session
         request.session['predicted_disease'] = predicted_disease
 
+        Diagnosis.objects.create(
+            user=request.user,
+            symptom_1=symptom_1,
+            symptom_2=symptom_2,
+            symptom_3=symptom_3,
+            symptom_4=symptom_4,
+            symptom_5=symptom_5,
+            predicted_disease=predicted_disease
+        )
+
         data = {
             'predicted_disease': predicted_disease,
-            'name': first_name + ' ' + last_name,
         }
         return render(request, 'diagnose.html', data)
 
@@ -108,6 +116,40 @@ def diagnose_machine_view(request):
 
     data = {
         'predicted_disease': predicted_disease,
-        'name': first_name + ' ' + last_name,
     }
     return render(request, 'diagnose.html', data)
+
+
+@login_required
+def profile_view(request):
+    return render(request, 'profile.html')
+
+
+@login_required
+def edit_profile(request):
+    if request.method == 'POST':
+        form = ProfileEditForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')  # Replace 'success_page' with your URL name
+    else:
+        form = ProfileEditForm(instance=request.user)
+
+    return render(request, 'edit_profile.html', {'form': form})
+
+
+@login_required
+def logout_view(request):
+    logout(request)
+    return redirect('index')
+
+
+@login_required
+def history_view(request):
+    # Filter Diagnosis objects for the current logged-in user
+    user_history = Diagnosis.objects.filter(user=request.user)
+
+    data = {
+        'user_history': user_history,
+    }
+    return render(request, 'history.html', data)
