@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Medical Diagnosticion | Edit Profile</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'edit_profile.css' %}">
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save Changes</button>
+</form>
+</body>
+</html>
