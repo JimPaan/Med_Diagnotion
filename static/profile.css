@@ -99,12 +99,17 @@ body {
     font-size: 16px;
 }
 
-.profile-info .panel-footer {
-    background-color:#f8f7f5 ;
-    border-top: 1px solid #e7ebee;
+.profile-info .panel-footer .post {
+    height: 25px;
+    margin: 5px 5px 5px 5px;
 }
 
-.profile-info .panel-footer ul li a {
+.profile-info .panel-footer {
+    background-color:#f8f7f5 ;
+    border-top: 2px solid #e7ebee;
+}
+
+.profile-info .panel-footer .icon ul li a {
     color: #7a7a7a;
 }
 
