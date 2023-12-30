@@ -10,7 +10,7 @@
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <!-- Main css for this page-->
     <link rel="stylesheet" type="text/css" href="{% static 'profile.css' %}">
-    <!-- bootstrap core css (Problem kat sini tolong tgk, Nazif)-->
+    <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css"/>
     <!-- fonts style -->
     <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&display=swap" rel="stylesheet">
@@ -96,23 +96,27 @@
                 <form>
                     <textarea placeholder="Whats in your mind today?" rows="2" class="form-control input-lg p-text-area"></textarea>
                 </form>
-                <footer class="panel-footer">
-                    <button class="btn btn-warning pull-right">Post</button>
-                    <ul class="nav nav-pills">
-                        <li>
-                            <a href="#"><i class="fa fa-map-marker"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-camera"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class=" fa fa-film"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-microphone"></i></a>
-                        </li>
-                    </ul>
-                </footer>
+                <div class="panel-footer">
+                    <div class="post">
+                        <button class="btn btn-warning pull-right">Post</button>
+                    </div>
+                    <div class="icon">
+                        <ul class="nav nav-pills">
+                            <li>
+                                <a href="#"><i class="fa fa-map-marker"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-camera"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class=" fa fa-film"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-microphone"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="panel">
                 <div class="bio-graph-heading">
