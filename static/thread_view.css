@@ -70,6 +70,46 @@ body {
     background-color: #3558c9;
 }
 
+.comment-topic {
+    border-bottom: 1px solid #eaeaea;
+    padding: 15px 25px;
+}
+
+.comment-topic:hover {
+    background-color: #f8f8f8;
+}
+
+.comment-topic h2 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.comment-topic p {
+    color: #555;
+    margin: 5px 0 5px 0;
+}
+
+.comment-topic .meta {
+    font-size: 12px;
+    color: #888;
+}
+
+.comment-topic .meta span {
+    margin-right: 10px;
+}
+
+.comment-topic .btn {
+    background-color: #4169E1;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.comment-topic .btn:hover {
+    background-color: #3558c9;
+}
+
 #myButton {
  max-width: 100px;
  position: fixed;

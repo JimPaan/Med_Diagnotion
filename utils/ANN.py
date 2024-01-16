@@ -20,9 +20,9 @@ symptoms_encoded = pd.get_dummies(symptoms)  # Convert symptoms to binary encodi
 X_train, X_test, y_train, y_test = train_test_split(symptoms_encoded, diseases_encoded, test_size=0.2, random_state=42)
 
 # Building the ANN
-model = Sequential()
-model.add(Dense(128, input_dim=X_train.shape[1], activation='relu'))
-model.add(Dense(64, activation='relu'))
+model = Sequential() #create ANN layer
+model.add(Dense(128, input_dim=X_train.shape[1], activation='relu')) #input layer e.g:symptoms
+model.add(Dense(64, activation='relu')) #dummy layer
 model.add(Dense(len(le.classes_), activation='softmax'))  # Output layer with softmax for multiclass classification
 
 # Compile the model

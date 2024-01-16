@@ -13,7 +13,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Medical Diagnosticion | Forum</title>
+  <title>Medical Diagnosticion | Comment</title>
 
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css"
@@ -91,29 +91,15 @@
 
 
 <div class="forum-container">
-    <div class="forum-header">
-        <h1>Patient Chat</h1>
+        <div class="forum-header">
+            <h1>Add a comment</h1>
+        </div>
+        <form method="post" action="{% url 'create-comment' thread_id %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Post</button>
+        </form>
     </div>
-    {% if threads %}
-        {% for thread in threads %}
-            <div class="forum-topic">
-                <h2><a href="{% url 'thread-view' thread.id %}">{{ thread.title }}</a></h2>
-                <p>{{ thread.content }}</p>
-                <div class="meta">
-                    <span>Posted by {{ thread.author }}</span>
-                    <span>{{ thread.created_at }}</span>
-                    <a href="{% url 'thread-view' thread.id %}" class="btn">View Topic</a>
-                </div>
-            </div>
-        {% endfor %}
-    {% endif %}
-</div>
-<button id="myButton" onclick="buttonClick()">Add a thread</button>
 </body>
-<script>
-    function buttonClick() {
-        window.location.href = "{% url 'create-thread' %}";
-    }
 
-</script>
 </html>

@@ -1,12 +1,13 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.utils import timezone
 
 from utils.ANN import user_symptoms_utils
-from .models import CustomUser, Diagnosis
-from .forms import ProfileEditForm
+from .models import CustomUser, Diagnosis, Thread, Post
+from .forms import ProfileEditForm, ThreadForm, PostForm
+
 
 # Create your views here.
 
@@ -156,4 +157,54 @@ def history_view(request):
 
 @login_required
 def forum_view(request):
-    return render(request, 'forum.html')
+    threads = Thread.objects.all()
+
+    data = {
+        'threads': threads,
+    }
+    return render(request, 'forum.html', data)
+
+
+@login_required
+def create_thread_view(request):
+    if request.method == 'POST':
+        form = ThreadForm(request.POST)
+        if form.is_valid():
+            thread = form.save(commit=False)
+            thread.author = request.user
+            thread.save()
+            return redirect('forum')
+    else:
+        form = ThreadForm()
+
+    return render(request, 'thread_form.html', {'form': form})
+
+
+
+@login_required
+def thread_view(request, thread_id):
+    thread = get_object_or_404(Thread, id=thread_id)
+    comments = Post.objects.filter(thread=thread)
+    data = {
+        'thread': thread,
+        'comments': comments,
+    }
+    return render(request, 'thread_view.html', data)
+
+
+@login_required
+def create_post_view(request, thread_id):
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            thread = get_object_or_404(Thread, id=thread_id)
+            comment = form.save(commit=False)
+            comment.author = request.user
+            comment.thread = thread
+            comment.save()
+            return redirect('forum')
+    else:
+        form = PostForm()
+
+    return render(request, 'create_post.html', {'form': form, 'thread_id': thread_id})
+
