@@ -8,13 +8,13 @@ from keras.layers import Dense
 data = pd.read_csv('utils/datata.csv')
 
 # Extract features (symptoms) and target variable (disease)
-symptoms = data.drop('Disease', axis=1)
+symptoms = data.drop('Disease', axis=1) #drop disease and store all symptoms in symptoms variable
 diseases = data['Disease']
 
 # Encode categorical variables
 le = LabelEncoder()
-diseases_encoded = le.fit_transform(diseases)
-symptoms_encoded = pd.get_dummies(symptoms)  # Convert symptoms to binary encoding
+diseases_encoded = le.fit_transform(diseases) #Convert diseases to binary encoding
+symptoms_encoded = pd.get_dummies(symptoms)  #Convert symptoms  binary encoding into dataframe
 
 # Splitting data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(symptoms_encoded, diseases_encoded, test_size=0.2, random_state=42)
@@ -52,7 +52,7 @@ def user_symptoms_utils(a, b, c, d, e):
 
     # Disease prediction based on symptoms
     predicted = model.predict(user_input)
-    predicted_disease = le.inverse_transform([predicted.argmax()])[0]
+    predicted_disease = le.inverse_transform([predicted.argmax()])[0] #Inverse binary to text
 
     return predicted_disease
 
