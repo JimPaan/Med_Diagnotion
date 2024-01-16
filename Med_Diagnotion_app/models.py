@@ -56,3 +56,23 @@ class Diagnosis(models.Model):
 
     def __str__(self):
         return f'{self.user}: {self.predicted_disease}'
+
+
+class Thread(models.Model):
+    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    title = models.CharField(max_length=50)
+    content = models.CharField(max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+class Post(models.Model):
+    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    comment = models.CharField(max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    thread = models.ForeignKey(Thread, on_delete=models.CASCADE)
+
+
+
+

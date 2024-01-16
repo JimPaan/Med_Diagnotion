@@ -1,5 +1,5 @@
 from django import forms
-from .models import CustomUser
+from .models import CustomUser, Thread, Post
 
 
 class ProfileEditForm(forms.ModelForm):
@@ -9,4 +9,21 @@ class ProfileEditForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(ProfileEditForm, self).__init__(*args, **kwargs)
-        # Add any additional customizations if needed
+
+
+class ThreadForm(forms.ModelForm):
+    class Meta:
+        model = Thread
+        fields = ['title', 'content']
+
+    def __init__(self, *args, **kwargs):
+        super(ThreadForm, self).__init__(*args, **kwargs)
+
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['comment']
+
+    def __init__(self, *args, **kwargs):
+        super(PostForm, self).__init__(*args, **kwargs)

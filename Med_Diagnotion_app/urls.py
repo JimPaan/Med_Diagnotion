@@ -14,4 +14,8 @@ urlpatterns = [
     path('logout', views.logout_view, name='logout'),
     path('diagnose-history', views.history_view, name='diagnose-history'),
     path('forum', views.forum_view, name='forum'),
+    path('create-thread', views.create_thread_view, name='create-thread'),
+    path('thread-view/<int:thread_id>/', views.thread_view, name='thread-view'),
+    path('create-comment/<int:thread_id>/', views.create_post_view, name='create-comment'),
 ]
+

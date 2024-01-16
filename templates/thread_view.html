@@ -20,7 +20,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
 
   <!-- Main css for this page-->
-  <link rel="stylesheet" type="text/css" href="{% static 'forum.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'thread_view.css' %}">
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css" />
 
@@ -94,25 +94,29 @@
     <div class="forum-header">
         <h1>Patient Chat</h1>
     </div>
-    {% if threads %}
-        {% for thread in threads %}
-            <div class="forum-topic">
-                <h2><a href="{% url 'thread-view' thread.id %}">{{ thread.title }}</a></h2>
-                <p>{{ thread.content }}</p>
-                <div class="meta">
-                    <span>Posted by {{ thread.author }}</span>
-                    <span>{{ thread.created_at }}</span>
-                    <a href="{% url 'thread-view' thread.id %}" class="btn">View Topic</a>
-                </div>
-            </div>
-        {% endfor %}
-    {% endif %}
+    <div class="forum-topic">
+        <h2>{{ thread.title }}</h2>
+        <p>{{ thread.content }}</p>
+        <div class="meta">
+            <span>Posted by {{ thread.author }}</span>
+            <span>{{ thread.created_at }}</span>
+        </div>
+    </div>
+    {% for comment in comments %}
+      <div class="comment-topic">
+          <p>{{ comment.comment }}</p>
+          <div class="meta">
+              <span>Posted by {{ comment.author }}</span>
+              <span>{{ comment.created_at }}</span>
+          </div>
+      </div>
+    {% endfor %}
 </div>
-<button id="myButton" onclick="buttonClick()">Add a thread</button>
+<button id="myButton" onclick="buttonClick()">Add comment</button>
 </body>
 <script>
     function buttonClick() {
-        window.location.href = "{% url 'create-thread' %}";
+        window.location.href = "{% url 'create-comment' thread.id %}";
     }
 
 </script>
