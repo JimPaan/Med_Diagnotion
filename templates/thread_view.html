@@ -13,13 +13,13 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Medical Diagnosticion | Forum</title>
+  <title>Medical Diagnosticion | Forum View</title>
 
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
 
-  <!-- Main css for this page-->
+  <!-- Main css for this page -->
   <link rel="stylesheet" type="text/css" href="{% static 'thread_view.css' %}">
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css" />
@@ -33,6 +33,7 @@
 </head>
 
 <body>
+<div>
     <!-- header section strats -->
     <header class="header_section">
       <div class="container-fluid">
@@ -40,10 +41,7 @@
           <a class="navbar-brand" href="{% url 'dashboard' %}">
             <img src="static/images/logo.png" alt="">
             <span>
-              Medical
-            </span>
-            <span>
-              Diagnostician
+              Medical Diagnostician
             </span>
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -55,10 +53,10 @@
             <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
               <ul class="navbar-nav  ">
                 <li class="nav-item active">
-                  <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{% url 'dashboard' %}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="service.html">service </a>
+                  <a class="nav-link" href="{% url 'forum' %}">Forum </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'diagnose' %}">Diagnostician </a>
@@ -88,36 +86,37 @@
       </div>
     </header>
     <!-- end header section -->
-
-
-<div class="forum-container">
-    <div class="forum-header">
-        <h1>Patient Chat</h1>
-    </div>
-    <div class="forum-topic">
-        <h2>{{ thread.title }}</h2>
-        <p>{{ thread.content }}</p>
-        <div class="meta">
-            <span>Posted by {{ thread.author }}</span>
-            <span>{{ thread.created_at }}</span>
-        </div>
-    </div>
-    {% for comment in comments %}
-      <div class="comment-topic">
-          <p>{{ comment.comment }}</p>
-          <div class="meta">
-              <span>Posted by {{ comment.author }}</span>
-              <span>{{ comment.created_at }}</span>
-          </div>
-      </div>
-    {% endfor %}
 </div>
-<button id="myButton" onclick="buttonClick()">Add comment</button>
-</body>
-<script>
-    function buttonClick() {
-        window.location.href = "{% url 'create-comment' thread.id %}";
-    }
 
-</script>
+
+    <div class="forum-container">
+        <div class="forum-header">
+            <h1>Patient Chat</h1>
+        </div>
+        <div class="forum-topic">
+            <h2>{{ thread.title }}</h2>
+            <p>{{ thread.content }}</p>
+            <div class="meta">
+                <span>Posted by {{ thread.author }}</span>
+                <span>{{ thread.created_at }}</span>
+            </div>
+        </div>
+        {% for comment in comments %}
+          <div class="comment-topic">
+              <p>{{ comment.comment }}</p>
+              <div class="meta">
+                  <span>Posted by {{ comment.author }}</span>
+                  <span>{{ comment.created_at }}</span>
+              </div>
+          </div>
+        {% endfor %}
+    </div>
+    <button id="myButton" onclick="buttonClick()">Add comment</button>
+    </body>
+    <script>
+        function buttonClick() {
+            window.location.href = "{% url 'create-comment' thread.id %}";
+        }
+
+    </script>
 </html>
