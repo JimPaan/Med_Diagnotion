@@ -38,7 +38,7 @@ body {
 
 /*header section*/
 .hero_area {
-  height: 98vh;
+  height: 48vh;
   position: relative;
 }
 
@@ -572,6 +572,7 @@ a:focus {
 /*# sourceMappingURL=style.css.map */
 
 button {
+    margin-top: 20px;
     width: 100%;
     padding: 10px;
     border: none;
@@ -593,8 +594,8 @@ button:hover {
   min-width: 200px;
   margin: 0 auto;
   border: 1px solid #3C1C78;
-  background-color: #16013E;
-  opacity:0.7;
+  background-color: #711aeb;
+  opacity: 0.9;
   z-index: 10;
 }
 
@@ -610,8 +611,8 @@ button:hover {
   display: block;
   width: 100%;
   padding: 10px 55px 10px 15px;
-  font-size: 14px;
-  color: #714BB9;
+  font-size: 16px;
+  color: #000;
 }
 
 .custom-select:after {
@@ -648,4 +649,23 @@ button:hover {
 .symptom_section .row {
   display: -webkit-flex;
   display: flex;
+}
+
+.diagnose-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #e4c452;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.results-diag{
+    text-align: center;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #e4c452;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

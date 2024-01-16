@@ -36,7 +36,10 @@
               <a class="navbar-brand" href="{% url 'dashboard' %}">
                 <img src="static/images/logo.png" alt="">
                 <span>
-                  Medical Diagnostician
+                    Medical
+                </span>
+                <span>
+                    Diagnostician
                 </span>
               </a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -82,181 +85,184 @@
         </header>
         <!-- end header section -->
 
-
-        <form method="post" action="{% url 'diagnose' %}">
-            {% csrf_token %}
-            <h5>Symptom 1:</h5>
-            <label class="custom-select" for="styledSelect1"><select id="styledSelect1" name="option1">
-                <option value="">
-                Select an option
-                </option>
-                <option value="muscle_wasting">
-                Muscle wasting
-                </option>
-                <option value="patches_in_throat">
-                Patches in throat
-                </option>
-                <option value="dark_urine">
-                Dark urine
-                </option>
-                <option value="stomach_pain">
-                Stomach pain
-                </option>
-                <option value="acidity">
-                Acidity
-                </option>
-                <option value="ulcers_on_tongue">
-                Ulcers on tongue
-                </option>
-                <option value="vomiting">
-                Vomiting
-                </option>
-                <option value="high_fever">
-                High fever
-                </option>
-                <option value="weight_loss">
-                Weight loss
-                </option>
-            </select></label>
-            <h5>Symptom 2:</h5>
-            <label class="custom-select" for="styledSelect2"><select id="styledSelect2" name="option2">
-                <option value="">
-                Select an option
-                </option>
-                <option value="muscle_wasting">
-                Muscle wasting
-                </option>
-                <option value="patches_in_throat">
-                Patches in throat
-                </option>
-                <option value="dark_urine">
-                Dark urine
-                </option>
-                <option value="stomach_pain">
-                Stomach pain
-                </option>
-                <option value="acidity">
-                Acidity
-                </option>
-                <option value="ulcers_on_tongue">
-                Ulcers on tongue
-                </option>
-                <option value="vomiting">
-                Vomiting
-                </option>
-                <option value="high_fever">
-                High fever
-                </option>
-                <option value="weight_loss">
-                Weight loss
-                </option>
-            </select></label>
-            <h5>Symptom 3:</h5>
-            <label class="custom-select" for="styledSelect3"><select id="styledSelect3" name="option3">
-                <option value="">
-                Select an option
-                </option>
-                <option value="muscle_wasting">
-                Muscle wasting
-                </option>
-                <option value="patches_in_throat">
-                Patches in throat
-                </option>
-                <option value="dark_urine">
-                Dark urine
-                </option>
-                <option value="stomach_pain">
-                Stomach pain
-                </option>
-                <option value="acidity">
-                Acidity
-                </option>
-                <option value="ulcers_on_tongue">
-                Ulcers on tongue
-                </option>
-                <option value="vomiting">
-                Vomiting
-                </option>
-                <option value="high_fever">
-                High fever
-                </option>
-                <option value="weight_loss">
-                Weight loss
-                </option>
-            </select></label>
-            <h5>Symptom 4:</h5>
-            <label class="custom-select" for="styledSelect4"><select id="styledSelect4" name="option4">
-                <option value="">
-                Select an option
-                </option>
-                <option value="muscle_wasting">
-                Muscle wasting
-                </option>
-                <option value="patches_in_throat">
-                Patches in throat
-                </option>
-                <option value="dark_urine">
-                Dark urine
-                </option>
-                <option value="stomach_pain">
-                Stomach pain
-                </option>
-                <option value="acidity">
-                Acidity
-                </option>
-                <option value="ulcers_on_tongue">
-                Ulcers on tongue
-                </option>
-                <option value="vomiting">
-                Vomiting
-                </option>
-                <option value="high_fever">
-                High fever
-                </option>
-                <option value="weight_loss">
-                Weight loss
-                </option>
-            </select></label>
-            <h5>Symptom 5:</h5>
-            <label class="custom-select" for="styledSelect5"><select id="styledSelect5" name="option5">
-                <option value="">
-                Select an option
-                </option>
-                <option value="muscle_wasting">
-                Muscle wasting
-                </option>
-                <option value="patches_in_throat">
-                Patches in throat
-                </option>
-                <option value="dark_urine">
-                Dark urine
-                </option>
-                <option value="stomach_pain">
-                Stomach pain
-                </option>
-                <option value="acidity">
-                Acidity
-                </option>
-                <option value="ulcers_on_tongue">
-                Ulcers on tongue
-                </option>
-                <option value="vomiting">
-                Vomiting
-                </option>
-                <option value="high_fever">
-                High fever
-                </option>
-                <option value="weight_loss">
-                Weight loss
-                </option>
-            </select></label>
-            <button type="submit">Diagnose</button>
-        </form>
+        <div class="diagnose-container">
+            <form method="post" action="{% url 'diagnose' %}">
+                {% csrf_token %}
+                <h5>Symptom 1:</h5>
+                <label class="custom-select" for="styledSelect1"><select id="styledSelect1" name="option1">
+                    <option value="">
+                    Select an option
+                    </option>
+                    <option value="muscle_wasting">
+                    Muscle wasting
+                    </option>
+                    <option value="patches_in_throat">
+                    Patches in throat
+                    </option>
+                    <option value="dark_urine">
+                    Dark urine
+                    </option>
+                    <option value="stomach_pain">
+                    Stomach pain
+                    </option>
+                    <option value="acidity">
+                    Acidity
+                    </option>
+                    <option value="ulcers_on_tongue">
+                    Ulcers on tongue
+                    </option>
+                    <option value="vomiting">
+                    Vomiting
+                    </option>
+                    <option value="high_fever">
+                    High fever
+                    </option>
+                    <option value="weight_loss">
+                    Weight loss
+                    </option>
+                </select></label>
+                <h5>Symptom 2:</h5>
+                <label class="custom-select" for="styledSelect2"><select id="styledSelect2" name="option2">
+                    <option value="">
+                    Select an option
+                    </option>
+                    <option value="muscle_wasting">
+                    Muscle wasting
+                    </option>
+                    <option value="patches_in_throat">
+                    Patches in throat
+                    </option>
+                    <option value="dark_urine">
+                    Dark urine
+                    </option>
+                    <option value="stomach_pain">
+                    Stomach pain
+                    </option>
+                    <option value="acidity">
+                    Acidity
+                    </option>
+                    <option value="ulcers_on_tongue">
+                    Ulcers on tongue
+                    </option>
+                    <option value="vomiting">
+                    Vomiting
+                    </option>
+                    <option value="high_fever">
+                    High fever
+                    </option>
+                    <option value="weight_loss">
+                    Weight loss
+                    </option>
+                </select></label>
+                <h5>Symptom 3:</h5>
+                <label class="custom-select" for="styledSelect3"><select id="styledSelect3" name="option3">
+                    <option value="">
+                    Select an option
+                    </option>
+                    <option value="muscle_wasting">
+                    Muscle wasting
+                    </option>
+                    <option value="patches_in_throat">
+                    Patches in throat
+                    </option>
+                    <option value="dark_urine">
+                    Dark urine
+                    </option>
+                    <option value="stomach_pain">
+                    Stomach pain
+                    </option>
+                    <option value="acidity">
+                    Acidity
+                    </option>
+                    <option value="ulcers_on_tongue">
+                    Ulcers on tongue
+                    </option>
+                    <option value="vomiting">
+                    Vomiting
+                    </option>
+                    <option value="high_fever">
+                    High fever
+                    </option>
+                    <option value="weight_loss">
+                    Weight loss
+                    </option>
+                </select></label>
+                <h5>Symptom 4:</h5>
+                <label class="custom-select" for="styledSelect4"><select id="styledSelect4" name="option4">
+                    <option value="">
+                    Select an option
+                    </option>
+                    <option value="muscle_wasting">
+                    Muscle wasting
+                    </option>
+                    <option value="patches_in_throat">
+                    Patches in throat
+                    </option>
+                    <option value="dark_urine">
+                    Dark urine
+                    </option>
+                    <option value="stomach_pain">
+                    Stomach pain
+                    </option>
+                    <option value="acidity">
+                    Acidity
+                    </option>
+                    <option value="ulcers_on_tongue">
+                    Ulcers on tongue
+                    </option>
+                    <option value="vomiting">
+                    Vomiting
+                    </option>
+                    <option value="high_fever">
+                    High fever
+                    </option>
+                    <option value="weight_loss">
+                    Weight loss
+                    </option>
+                </select></label>
+                <h5>Symptom 5:</h5>
+                <label class="custom-select" for="styledSelect5"><select id="styledSelect5" name="option5">
+                    <option value="">
+                    Select an option
+                    </option>
+                    <option value="muscle_wasting">
+                    Muscle wasting
+                    </option>
+                    <option value="patches_in_throat">
+                    Patches in throat
+                    </option>
+                    <option value="dark_urine">
+                    Dark urine
+                    </option>
+                    <option value="stomach_pain">
+                    Stomach pain
+                    </option>
+                    <option value="acidity">
+                    Acidity
+                    </option>
+                    <option value="ulcers_on_tongue">
+                    Ulcers on tongue
+                    </option>
+                    <option value="vomiting">
+                    Vomiting
+                    </option>
+                    <option value="high_fever">
+                    High fever
+                    </option>
+                    <option value="weight_loss">
+                    Weight loss
+                    </option>
+                </select></label>
+                <button type="submit">Diagnose</button>
+            </form>
+        </div>
     </div>
-    <div>
+    <div class="results-diag">
+        <h6>The predicted disease is:
         {% if predicted_disease %}
-             <p>The predicted disease is {{ predicted_disease }}</p>
+             {{ predicted_disease }}
         {% endif %}
+        </h6>
     </div>
 </body>
 </html>
