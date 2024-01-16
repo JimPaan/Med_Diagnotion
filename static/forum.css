@@ -12,9 +12,9 @@ body {
 
 /* Forum Styles */
 .forum-container {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 20px auto;
-    background-color: #fff;
+    background-color: #e4c452;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -32,7 +32,7 @@ body {
 
 .forum-topic {
     border-bottom: 1px solid #eaeaea;
-    padding: 15px 0;
+    padding: 15px 10px;
 }
 
 .forum-topic:hover {
@@ -71,7 +71,7 @@ body {
 }
 
 #myButton {
- max-width: 100px;
+ max-width: 110px;
  position: fixed;
  bottom: 20px;
  right: 20px;

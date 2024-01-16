@@ -21,7 +21,7 @@ def index(request):
         'age': age,
         'gender': gender,
     }
-    return render(request, '.html', data)
+    return render(request, 'index.html', data)
 
 
 def login_view(request):

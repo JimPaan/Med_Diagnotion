@@ -22,14 +22,14 @@
   <!-- Main css for this page -->
   <link rel="stylesheet" type="text/css" href="{% static 'thread_view.css' %}">
   <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.css' %}" />
 
   <!-- fonts style -->
   <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&display=swap" rel="stylesheet">
   <!-- Custom styles for this template -->
-  <link href="static/css/style.css" rel="stylesheet" />
+  <link href="{% static '/css/style.css' %}" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="static/css/responsive.css" rel="stylesheet" />
+  <link href="{% static '/css/responsive.css' %}" rel="stylesheet" />
 </head>
 
 <body>
@@ -39,9 +39,12 @@
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="{% url 'dashboard' %}">
-            <img src="static/images/logo.png" alt="">
+            <img src="{% static '/images/logo.png' %}" alt="">
             <span>
-              Medical Diagnostician
+              Medical
+            </span>
+            <span>
+              Diagnostician
             </span>
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -87,7 +90,6 @@
     </header>
     <!-- end header section -->
 </div>
-
 
     <div class="forum-container">
         <div class="forum-header">

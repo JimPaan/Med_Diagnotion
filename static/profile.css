@@ -101,6 +101,7 @@ body {
 
 .profile-info .panel-footer .post {
     height: 25px;
+    height: 25px;
     margin: 5px 5px 5px 5px;
 }
 
@@ -378,4 +379,8 @@ ul.summary-list > li:last-child  {
 
 .activity-desk .album a:last-child{
     margin-right: 0px;
+}
+
+.panel-footer button {
+    margin-top: 0px;
 }
