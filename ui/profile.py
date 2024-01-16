@@ -36,7 +36,7 @@ class Ui_Dialog_Profile(object):
         self.profile_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.profile_frame.setObjectName("profile_frame")
         self.yellowbg = QtWidgets.QLabel(self.profile_frame)
-        self.yellowbg.setGeometry(QtCore.QRect(20, 20, 211, 211))
+        self.yellowbg.setGeometry(QtCore.QRect(20, 20, 211, 251))
         self.yellowbg.setStyleSheet("background-color: rgb(255, 190, 26);")
         self.yellowbg.setText("")
         self.yellowbg.setObjectName("yellowbg")
@@ -45,7 +45,7 @@ class Ui_Dialog_Profile(object):
         self.profile_pic.setBaseSize(QtCore.QSize(0, 0))
         self.profile_pic.setAutoFillBackground(False)
         self.profile_pic.setStyleSheet("border-radius: 55px;\n"
-"border-image: url(:/back/Screenshot_2023-12-30-22-21-52-820_com.instagram.android.jpg);\n"
+"border-image: url(:/logo/pngegg.png);\n"
 "background-color: rgb(255, 255, 255);\n"
 "\n"
 "")
@@ -68,7 +68,7 @@ class Ui_Dialog_Profile(object):
         self.name_on_p.setAlignment(QtCore.Qt.AlignCenter)
         self.name_on_p.setObjectName("name_on_p")
         self.frame_4 = QtWidgets.QFrame(self.profile_frame)
-        self.frame_4.setGeometry(QtCore.QRect(40, 210, 171, 21))
+        self.frame_4.setGeometry(QtCore.QRect(40, 220, 171, 21))
         self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_4.setObjectName("frame_4")
@@ -129,18 +129,6 @@ class Ui_Dialog_Profile(object):
         font.setWeight(75)
         self.l_name_profile.setFont(font)
         self.l_name_profile.setObjectName("l_name_profile")
-        self.edit_logo = QtWidgets.QLabel(self.profile_frame)
-        self.edit_logo.setGeometry(QtCore.QRect(15, 240, 31, 21))
-        self.edit_logo.setStyleSheet("image: url(:/logo/edit.png);")
-        self.edit_logo.setText("")
-        self.edit_logo.setObjectName("edit_logo")
-        self.edit_profile = QtWidgets.QPushButton(self.profile_frame)
-        self.edit_profile.setGeometry(QtCore.QRect(41, 240, 75, 23))
-        self.edit_profile.setStyleSheet("border-color: rgb(255, 255, 255);\n"
-"background-color: rgb(250,0,0,0);\n"
-"border-radius: 5px;\n"
-"font: 8pt \"MS Shell Dlg 2\";")
-        self.edit_profile.setObjectName("edit_profile")
         self.gender_label = QtWidgets.QLabel(self.profile_frame)
         self.gender_label.setGeometry(QtCore.QRect(10, 360, 81, 16))
         font = QtGui.QFont()
@@ -268,14 +256,13 @@ class Ui_Dialog_Profile(object):
         self.profile_label2.setText(_translate("Dialog", "Profile"))
         self.f_name_profile.setText(_translate("Dialog", "First Name  :"))
         self.l_name_profile.setText(_translate("Dialog", "Last Name  :"))
-        self.edit_profile.setText(_translate("Dialog", "Edit profile"))
         self.gender_label.setText(_translate("Dialog", "Gender        :"))
         self.mobile_label.setText(_translate("Dialog", "Mobile         :"))
         self.ocucupatio_label.setText(_translate("Dialog", "Occupation :"))
         self.email.setText(_translate("Dialog", "lejosste@gmail.com"))
         self.f_name_label.setText(_translate("Dialog", "Josette"))
-        self.l_name_label.setText(_translate("Dialog", "Cantik"))
-        self.gender_label_3.setText(_translate("Dialog", "Female"))
+        self.l_name_label.setText(_translate("Dialog", "Tee"))
+        self.gender_label_3.setText(_translate("Dialog", "Male"))
         self.mobile_label_3.setText(_translate("Dialog", "0123456789"))
         self.occupation.setText(_translate("Dialog", "Streamer"))
         self.label.setText(_translate("Dialog", "Medical History"))

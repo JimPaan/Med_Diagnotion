@@ -152,3 +152,8 @@ def history_view(request):
         'user_history': user_history,
     }
     return render(request, 'history.html', data)
+
+
+@login_required
+def forum_view(request):
+    return render(request, 'forum.html')
