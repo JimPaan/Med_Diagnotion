@@ -60,7 +60,7 @@
                       <a class="nav-link" href="{% url 'diagnose' %}">Diagnostician </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="clinic.html"> clinic</a>
+                      <a class="nav-link" href="{% url 'diagnose-history' %}"> history</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="contact.html">About us</a>
@@ -256,13 +256,14 @@
                 <button type="submit">Diagnose</button>
             </form>
         </div>
+        <div class="results-diag">
+            <h6>The predicted disease is:
+            {% if predicted_disease %}
+                 {{ predicted_disease }}
+            {% endif %}
+            </h6>
+        </div>
     </div>
-    <div class="results-diag">
-        <h6>The predicted disease is:
-        {% if predicted_disease %}
-             {{ predicted_disease }}
-        {% endif %}
-        </h6>
-    </div>
+
 </body>
 </html>
