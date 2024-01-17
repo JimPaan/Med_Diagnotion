@@ -13,15 +13,7 @@ from .forms import ProfileEditForm, ThreadForm, PostForm
 
 
 def index(request):
-    name = 'Muaz'
-    age = 25
-    gender = 'male'
-    data = {
-        'name': name,
-        'age': age,
-        'gender': gender,
-    }
-    return render(request, 'index.html', data)
+    return render(request, 'index.html')
 
 
 def login_view(request):
@@ -118,6 +110,7 @@ def diagnose_machine_view(request):
     data = {
         'predicted_disease': predicted_disease,
     }
+
     return render(request, 'diagnose.html', data)
 
 
